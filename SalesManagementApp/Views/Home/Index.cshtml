@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Overview</h1>
+    <div class="card">
+        <table class="table">
+            <tr>
+                <th>
+                    <a asp-controller="SalesPeople" asp-action="Index"> @Html.DisplayName("Total Sales Employees")</a>
+                </th>
+                <th>
+                    <a asp-controller="Sales" asp-action="Index"> @Html.DisplayName("Total Sales") </a>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <div>
+                        @ViewBag.TotalEmployees
+                    </div>
+                </th>
+                <th>
+                    <div>
+                        @ViewBag.TotalSales
+                    </div>
+
+                </th>
+            </tr>
+        </table>
+        
+    </div>
+</div>

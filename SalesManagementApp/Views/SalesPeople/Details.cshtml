@@ -1,0 +1,57 @@
+﻿@model SalesManagementApp.Models.SalesPerson
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SalesPerson</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Commission)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Commission)
+        </dd>
+    </dl>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("Month")
+            </th>
+            <th>
+                @Html.DisplayName("Monthly Sales")
+            </th>
+            <th>
+                @Html.DisplayName("Monthly Commission")
+            </th>
+        </tr>
+        @foreach (KeyValuePair<string, List<decimal>> kvp in ViewBag.RecapDict)
+        {
+            <tr>
+                <th style="font-weight:400">
+                    @kvp.Key
+                </th>
+                <th style="font-weight:400">
+                    @kvp.Value.ElementAt(0).ToString()                 
+                </th>
+                <th style="font-weight:400">
+                    @kvp.Value.ElementAt(1)
+                </th>
+            </tr>
+        }
+    </table>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
